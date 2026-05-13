@@ -12,11 +12,11 @@ scroll-behavior:smooth;
 
 body{
 margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-background:linear-gradient(180deg,#f9fafb,#eef2f7);
+font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+background:#f7f8fa;
 color:#333;
-line-height:1.6;
-animation:fadeIn 0.8s ease-in;
+line-height:1.8;
+animation:fadeIn 0.8s ease;
 }
 
 @keyframes fadeIn{
@@ -26,108 +26,131 @@ to{opacity:1;}
 
 /* ===== Header ===== */
 header{
-background:#111827;
+background:#0f172a;
 color:white;
-padding:70px 20px;
+padding:90px 20px 80px;
 text-align:center;
 position:relative;
-overflow:hidden;
+}
+
+header::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:4px;
+background:linear-gradient(90deg,#2563eb,#16a34a);
 }
 
 header h1{
 margin:0;
-font-size:30px;
-letter-spacing:1px;
+font-size:32px;
+font-weight:600;
+letter-spacing:2px;
 }
 
 header p{
-opacity:0.8;
-margin-top:10px;
+margin-top:15px;
+opacity:0.85;
+font-size:14px;
 }
 
 /* ===== Container ===== */
 .container{
-max-width:950px;
-margin:60px auto;
+max-width:900px;
+margin:80px auto;
 padding:0 20px;
 }
 
-/* ===== Card UI ===== */
+/* ===== Card ===== */
 .card{
 background:white;
-padding:30px;
-margin-bottom:30px;
-border-radius:16px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
-transition:all 0.3s ease;
-transform:translateY(20px);
+padding:35px;
+margin-bottom:40px;
+border-radius:14px;
+border:1px solid #e5e7eb;
+transition:all 0.4s ease;
 opacity:0;
+transform:translateY(25px);
 }
 
 .card.visible{
-transform:translateY(0);
 opacity:1;
+transform:translateY(0);
 }
 
 .card:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 35px rgba(0,0,0,0.08);
+box-shadow:0 12px 30px rgba(0,0,0,0.06);
 }
 
 .card h2{
 margin-top:0;
-font-size:20px;
+font-size:18px;
+font-weight:600;
+margin-bottom:15px;
 }
 
-/* ===== Button ===== */
+.card p{
+font-size:14px;
+color:#555;
+}
+
+/* ===== CTA ===== */
+.cta-center{
+text-align:center;
+margin:100px 0 80px;
+}
+
 .button{
 display:inline-block;
-margin-top:15px;
-padding:12px 22px;
-background:#2563eb;
+padding:14px 36px;
+background:#16a34a;
 color:white;
 text-decoration:none;
-border-radius:8px;
+border-radius:30px;
 font-size:14px;
+letter-spacing:1px;
 transition:all 0.3s ease;
+box-shadow:0 6px 15px rgba(22,163,74,0.2);
 }
 
 .button:hover{
-background:#1e40af;
-transform:scale(1.05);
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(22,163,74,0.3);
 }
 
-/* ===== Green CTA ===== */
-.green-button{
-background:#16a34a;
+/* ===== Section ===== */
+.section{
+margin-top:100px;
+padding-top:60px;
+border-top:1px solid #e5e7eb;
 }
 
-.green-button:hover{
-background:#15803d;
-transform:scale(1.08);
+.section h2{
+font-size:18px;
+margin-bottom:20px;
 }
 
-/* ===== Center CTA Block ===== */
-.cta-center{
-text-align:center;
-margin:80px 0;
-animation:fadeIn 1.2s ease-in;
+.section p{
+font-size:13px;
+color:#555;
 }
 
 /* ===== Footer ===== */
 footer{
 background:#111827;
 color:#aaa;
-padding:50px 20px;
+padding:60px 20px;
 text-align:center;
-margin-top:80px;
+margin-top:100px;
 }
 
 footer a{
 color:#9ca3af;
 text-decoration:none;
-margin:0 12px;
-font-size:14px;
+margin:0 14px;
+font-size:13px;
 transition:0.3s;
 }
 
@@ -135,19 +158,21 @@ footer a:hover{
 color:white;
 }
 
-.section{
-margin-top:90px;
-padding-top:70px;
-border-top:1px solid #ddd;
+footer p{
+margin-top:25px;
+font-size:12px;
 }
 
 /* ===== Responsive ===== */
 @media(max-width:600px){
 header{
-padding:50px 20px;
+padding:70px 20px;
+}
+.container{
+margin:60px auto;
 }
 .card{
-padding:22px;
+padding:25px;
 }
 }
 </style>
@@ -157,14 +182,14 @@ padding:22px;
 
 <header>
 <h1>オンライン情報展示</h1>
-<p>デジタル活動・在宅ワーク関連情報の参考ページ</p>
+<p>デジタル活動・オンラインサービスに関する情報紹介ページ</p>
 </header>
 
 <div class="container">
 
 <div class="card">
 <h2>🎬 ビデオ投稿編集リソース</h2>
-<p>ショート動画制作、アニメーション編集ツール、学習参考情報などを紹介しています。</p>
+<p>ショート動画制作、アニメーション編集ツール、学習参考情報などをご紹介しています。</p>
 </div>
 
 <div class="card">
@@ -174,43 +199,36 @@ padding:22px;
 
 <div class="card">
 <h2>💼 その他オンライン活動情報</h2>
-<p>AIツール、ライティングサポート、スキル共有サービスなどの情報まとめ。</p>
+<p>AIツール、ライティングサポート、スキル共有サービスなどの関連情報をまとめています。</p>
 </div>
 
-<!-- 中央CTA按钮 -->
 <div class="cta-center">
-<a href="qr.html" class="button green-button" style="font-size:16px;padding:16px 30px;">
- 詳細はこちら
+<a href="qr.html" class="button">
+詳細を見る
 </a>
 </div>
 
-<!-- 隐私政策 -->
 <div id="privacy" class="section">
 <h2>プライバシーポリシー</h2>
-<p>当サイトでは、アクセス解析やお問い合わせ対応のため、必要最低限の情報を取得する場合があります。</p>
-<p>取得した情報は適切に管理し、法令に基づく場合を除き第三者へ提供することはありません。</p>
-<p>Cookieを使用する場合がありますが、ブラウザ設定により無効化できます。</p>
+<p>当サイトでは必要最低限の情報を取得する場合があります。取得した情報は適切に管理し、法令に基づく場合を除き第三者へ提供することはありません。</p>
+<p>Cookieはブラウザ設定により無効化できます。</p>
 <p>最終更新日：2026年5月13日</p>
 </div>
 
 <div id="terms" class="section">
 <h2>利用規約</h2>
-<p>本サイトは情報提供を目的としています。</p>
-<p>掲載内容は予告なく変更される場合があります。</p>
-<p>当サイトの利用により生じた損害については責任を負いかねます。</p>
+<p>本サイトは情報提供を目的としています。掲載内容は予告なく変更される場合があります。</p>
 </div>
 
 <div id="disclaimer" class="section">
 <h2>免責事項</h2>
-<p>本サイトは情報提供のみを目的としており、特定の成果や収益を保証するものではありません。</p>
-<p>外部リンク先の内容については責任を負いません。</p>
+<p>本サイトは特定の成果を保証するものではありません。外部リンク先の内容については責任を負いません。</p>
 </div>
 
 <div id="about" class="section">
 <h2>運営者情報</h2>
-<p>サイト名：Online information display</p>
+<p>サイト名：Online Information Display</p>
 <p>運営形態：個人運営</p>
-<p>お問い合わせ：必要に応じて別途案内</p>
 </div>
 
 </div>
@@ -220,25 +238,26 @@ padding:22px;
 <a href="#terms">利用規約</a>
 <a href="#disclaimer">免責事項</a>
 <a href="#about">運営者情報</a>
-<p style="margin-top:20px;">© 2026 Online information display</p>
+<p>© 2026 Online Information Display</p>
 </footer>
 
 <script>
-// 卡片滚动淡入动画
 const cards = document.querySelectorAll('.card');
 
-function revealCards(){
+function reveal(){
 const trigger = window.innerHeight * 0.9;
-cards.forEach(card=>{
+cards.forEach((card,i)=>{
 const top = card.getBoundingClientRect().top;
 if(top < trigger){
+setTimeout(()=>{
 card.classList.add('visible');
+}, i*120);
 }
 });
 }
 
-window.addEventListener('scroll', revealCards);
-window.addEventListener('load', revealCards);
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
 </script>
 
 </body>
