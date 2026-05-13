@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ページ移動中...</title>
+<title>安全接続確認中...</title>
 
 <style>
 body{
@@ -23,8 +23,19 @@ padding:40px;
 border-radius:12px;
 box-shadow:0 8px 20px rgba(0,0,0,0.05);
 width:90%;
-max-width:400px;
+max-width:420px;
 text-align:center;
+}
+
+.lock{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.status{
+font-size:14px;
+color:#16a34a;
+margin-top:8px;
 }
 
 .progress-container{
@@ -33,7 +44,7 @@ height:8px;
 background:#e5e7eb;
 border-radius:6px;
 overflow:hidden;
-margin-top:20px;
+margin-top:25px;
 }
 
 .progress-bar{
@@ -42,18 +53,31 @@ width:0%;
 background:#16a34a;
 transition:width 0.1s linear;
 }
+
+.small-text{
+font-size:12px;
+color:#888;
+margin-top:15px;
+}
 </style>
 </head>
 
 <body>
 
 <div class="box">
-<h2>安全なページへ移動中...</h2>
-<p>しばらくお待ちください。</p>
+
+<div class="lock">🔒</div>
+
+<h2>安全な接続を確認しています</h2>
+<p class="status">HTTPS暗号化通信を確認中...</p>
 
 <div class="progress-container">
 <div class="progress-bar" id="progressBar"></div>
 </div>
+
+<p class="small-text">
+自動的に安全なページへ移動します。
+</p>
 
 </div>
 
