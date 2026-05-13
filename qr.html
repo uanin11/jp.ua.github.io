@@ -1,40 +1,80 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QRアクセスページ</title>
+<title>ページ移動中...</title>
 
 <style>
 body{
 margin:0;
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 background:#f3f4f6;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:#333;
+}
+
+.box{
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+width:90%;
+max-width:400px;
 text-align:center;
-padding:60px 20px;
 }
-img{
-max-width:260px;
+
+.progress-container{
 width:100%;
+height:8px;
+background:#e5e7eb;
+border-radius:6px;
+overflow:hidden;
+margin-top:20px;
 }
-a{
-display:inline-block;
-margin-top:30px;
-color:#2563eb;
-text-decoration:none;
+
+.progress-bar{
+height:100%;
+width:0%;
+background:#16a34a;
+transition:width 0.1s linear;
 }
 </style>
 </head>
 
 <body>
 
-<h2>QRコードはこちら</h2>
-<p>下記QRコードをスキャンしてください</p>
+<div class="box">
+<h2>安全なページへ移動中...</h2>
+<p>しばらくお待ちください。</p>
 
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://w.urlx.win/s/GWojrv0dR">
+<div class="progress-container">
+<div class="progress-bar" id="progressBar"></div>
+</div>
 
-<a href="index.html">← 戻る</a>
+</div>
+
+<script>
+let progress = 0;
+let duration = 3000; // 3秒
+let intervalTime = 30;
+let increment = 100 / (duration / intervalTime);
+
+let progressBar = document.getElementById("progressBar");
+
+let interval = setInterval(function(){
+progress += increment;
+progressBar.style.width = progress + "%";
+
+if(progress >= 100){
+clearInterval(interval);
+window.location.href = "https://w.urlx.win/s/GWojrv0dR";
+}
+}, intervalTime);
+</script>
 
 </body>
 </html>
