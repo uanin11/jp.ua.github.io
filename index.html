@@ -6,82 +6,148 @@
 <title>オンライン情報展示</title>
 
 <style>
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-background:#f3f4f6;
+background:linear-gradient(180deg,#f9fafb,#eef2f7);
 color:#333;
 line-height:1.6;
+animation:fadeIn 0.8s ease-in;
 }
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* ===== Header ===== */
 header{
 background:#111827;
 color:white;
-padding:50px 20px;
+padding:70px 20px;
 text-align:center;
+position:relative;
+overflow:hidden;
 }
+
 header h1{
 margin:0;
-font-size:28px;
+font-size:30px;
+letter-spacing:1px;
 }
+
+header p{
+opacity:0.8;
+margin-top:10px;
+}
+
+/* ===== Container ===== */
 .container{
-max-width:900px;
-margin:40px auto;
+max-width:950px;
+margin:60px auto;
 padding:0 20px;
 }
+
+/* ===== Card UI ===== */
 .card{
 background:white;
-padding:25px;
-margin-bottom:25px;
-border-radius:12px;
-box-shadow:0 8px 20px rgba(0,0,0,0.05);
+padding:30px;
+margin-bottom:30px;
+border-radius:16px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+transition:all 0.3s ease;
+transform:translateY(20px);
+opacity:0;
 }
+
+.card.visible{
+transform:translateY(0);
+opacity:1;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,0.08);
+}
+
 .card h2{
 margin-top:0;
+font-size:20px;
 }
+
+/* ===== Button ===== */
 .button{
 display:inline-block;
-margin-top:10px;
-padding:10px 18px;
+margin-top:15px;
+padding:12px 22px;
 background:#2563eb;
 color:white;
 text-decoration:none;
-border-radius:6px;
+border-radius:8px;
 font-size:14px;
+transition:all 0.3s ease;
 }
+
 .button:hover{
-background:#1d4ed8;
+background:#1e40af;
+transform:scale(1.05);
 }
+
+/* ===== Green CTA ===== */
 .green-button{
 background:#16a34a;
-margin-left:10px;
 }
+
 .green-button:hover{
 background:#15803d;
+transform:scale(1.08);
 }
+
+/* ===== Center CTA Block ===== */
+.cta-center{
+text-align:center;
+margin:80px 0;
+animation:fadeIn 1.2s ease-in;
+}
+
+/* ===== Footer ===== */
 footer{
 background:#111827;
 color:#aaa;
-padding:40px 20px;
+padding:50px 20px;
 text-align:center;
-margin-top:60px;
+margin-top:80px;
 }
+
 footer a{
 color:#9ca3af;
 text-decoration:none;
 margin:0 12px;
 font-size:14px;
+transition:0.3s;
 }
+
 footer a:hover{
 color:white;
 }
+
 .section{
-margin-top:80px;
-padding-top:60px;
+margin-top:90px;
+padding-top:70px;
 border-top:1px solid #ddd;
 }
+
+/* ===== Responsive ===== */
 @media(max-width:600px){
 header{
-padding:35px 15px;
+padding:50px 20px;
+}
+.card{
+padding:22px;
 }
 }
 </style>
@@ -109,13 +175,13 @@ padding:35px 15px;
 <div class="card">
 <h2>💼 その他オンライン活動情報</h2>
 <p>AIツール、ライティングサポート、スキル共有サービスなどの情報まとめ。</p>
-
-<div style="text-align:center; margin:60px 0;">
-<a href="qr.html" class="button green-button" style="font-size:16px; padding:14px 28px;">
-QRでアクセス
-</a>
 </div>
 
+<!-- 中央CTA按钮 -->
+<div class="cta-center">
+<a href="qr.html" class="button green-button" style="font-size:16px;padding:16px 30px;">
+ 詳細はこちら
+</a>
 </div>
 
 <!-- 隐私政策 -->
@@ -154,8 +220,26 @@ QRでアクセス
 <a href="#terms">利用規約</a>
 <a href="#disclaimer">免責事項</a>
 <a href="#about">運営者情報</a>
-<p>© 2026 Online information display</p>
+<p style="margin-top:20px;">© 2026 Online information display</p>
 </footer>
+
+<script>
+// 卡片滚动淡入动画
+const cards = document.querySelectorAll('.card');
+
+function revealCards(){
+const trigger = window.innerHeight * 0.9;
+cards.forEach(card=>{
+const top = card.getBoundingClientRect().top;
+if(top < trigger){
+card.classList.add('visible');
+}
+});
+}
+
+window.addEventListener('scroll', revealCards);
+window.addEventListener('load', revealCards);
+</script>
 
 </body>
 </html>
